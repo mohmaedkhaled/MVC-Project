@@ -1,0 +1,25 @@
+﻿@model ASPDay4.Models.user
+    @{ 
+        
+    }
+        <form method="post">
+
+            <div class="form-group">
+                @Html.LabelFor(n => n.email)
+                @Html.TextBoxFor(n => n.email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(n => n.email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(n => n.password)
+                @Html.PasswordFor(n => n.password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(n => n.password, "", new { @class = "text-danger" })
+            </div>
+            <input type="checkbox" name="remeberme" value="true"/>remeber me
+            <input type="submit" value="login" />
+            @if (ViewBag.status != null)
+            {
+                <p class="text-danger" >@ViewBag.status</p>
+            }
+        </form>
+ 

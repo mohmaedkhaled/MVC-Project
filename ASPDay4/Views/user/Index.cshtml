@@ -1,0 +1,31 @@
+﻿@model List<ASPDay4.Models.user>
+@{
+  
+}
+
+ 
+        @Html.ActionLink("create" ,"create",null,new { @class="btn btn-info" })
+        <table class="table">
+            <tr>
+                <th>@Html.DisplayNameFor(n=>n[0].id)</th>
+                <th>@Html.DisplayNameFor(n=>n[0].name)</th>
+                <th>@Html.DisplayNameFor(n => n[0].email)</th>
+                <th>@Html.DisplayNameFor(n => n[0].age)</th>
+                <th>
+
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.email</td>
+                    <td>@item.age</td>
+                    <td>@Html.ActionLink("edit","edit",new {id=item.id },new {@class="btn btn-info" })</td>
+                </tr>
+            }
+
+        </table>
+ 

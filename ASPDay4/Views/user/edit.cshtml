@@ -1,0 +1,50 @@
+﻿@model ASPDay4.Models.user
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>edit</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row" style="margin:auto;">
+        <div class="col-8 " style="margin:auto;">
+            <form method="post">
+                @*<input type="hidden" name="id" value="@Model.id" />*@
+                @Html.HiddenFor(n=>n.id)
+                <div class="form-group">
+                    @Html.LabelFor(n => n.name)
+                    @Html.TextBoxFor(n => n.name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(n => n.name, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(n => n.email)
+                    @Html.TextBoxFor(n => n.email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(n => n.email, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(n => n.age)
+                    @Html.TextBoxFor(n => n.age, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(n => n.age, "", new { @class = "text-danger" })
+                </div>
+               
+                <div class="form-group">
+                    @Html.LabelFor(n => n.dept_id)
+                    @Html.DropDownListFor(n => n.dept_id, (SelectList)ViewBag.dept, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(n => n.dept_id, "", new { @class = "text-danger" })
+                </div>
+                <input type="submit" value="save" />
+
+            </form>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.0.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
